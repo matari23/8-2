@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Oleo+Script:wght@400;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        :root{
+            --dark:rgb(20,20,20);
+            --yellow:rgb(253,216,53);
+            --blue:rgb(98,0,234);
+
+            --c1:rgb(3, 48, 16);
+            --c2:rgb(62, 205, 119);
+
+            --left-color: var(--c1);
+            --right-color: var(--c2);
+        }
+        body{
+            background-color: var(--dark);
+            /* font-family: 'Lilita One', cursive;
+            font-family: 'Oleo Script', cursive; */
+        }
+        .side{
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+        }
+        .side .title{
+            font-size: 8vw;
+            margin: 0 10vw;
+            width: 80vw;
+            font-family: 'Lilita One', cursive;
+        }
+        .side .fancy{
+            font-family: 'Oleo Script', cursive;
+            font-size: 1.3em;
+            line-height: 0.8em;
+        }
+        #left_slide{
+            background-color: var(--left-color);
+            width: 60%;
+            z-index: 2;
+        }
+        #left_slide .title{color: #fff;}
+        #left_slide .fancy{color: var(--right-color);}
+
+        #right_slide{
+            background-color: var(--right-color);
+        }
+        #right_slide .title{color: var(--dark);}
+
+    </style>
+</head>
+<body>
+    <div id="left_slide" class="side">
+        <h2 class="title">
+            Sometimes a simple <br>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; is
+            <span class="fancy">better</span> 
+        </h2><!-- title -->
+    </div><!-- left_slide -->
+
+    <div id="right_slide" class="side">
+        <h2 class="title">
+            Sometimes a simple <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;is
+            <span class="fancy">better</span> 
+        </h2><!-- title -->
+    </div><!-- right_slide -->
+
+    <script lang="java">
+        const left = document.getElementById("left_slide");
+        const handleMove = e => {
+            left.style.width = `${e.clientX / window.innerWidth * 100}%`;
+        }
+        document.onmousemove = e => handleMove(e);
+    </script>
+
+
+</body>
+</html>
